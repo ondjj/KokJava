@@ -16,7 +16,16 @@ public class MutiplicationTable {
 			System.out.println();
 			if(i%3==0) System.out.println();
 		}
-
+		System.out.println("===========================");
+		for(int k=2;k<10;k+=3) { // 블록별 수 제어
+			for(int i=1;i<=3;i++) { // 곱하는 수
+				for(int j=k; j<=k+2 && j<10;j++) { // 단
+					System.out.print(j+"*"+i+"="+j*i+"\t");
+				}
+				System.out.println();
+			}
+			System.out.println();
+		}
 	}
 
 }

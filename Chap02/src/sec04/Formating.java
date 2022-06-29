@@ -38,10 +38,24 @@ public class Formating {
 		System.out.printf("상품의 가격:%06d원 \n", prob);
 		
 		double won = 314.16;
-		System.out.printf("반지름이 10인 원의 넓이:%f \n",won);
-		System.out.printf("반지름이 10인 원의 넓이:%10.2f \n",won);
-		System.out.printf("반지름이 10인 원의 넓이:%-10.2f \n",won);
-		System.out.printf("반지름이 10인 원의 넓이:%010.2f \n",won);
+		System.out.printf("반지름이 %2$d인 원의 넓이:%1$f \n",won, 10);
+		System.out.printf("반지름이 %2$d인 원의 넓이:%1$10.2f \n",won, 10);
+		System.out.printf("반지름이 %2$d인 원의 넓이:%1$-10.2f \n",won, 10);
+		System.out.printf("반지름이 %2$d인 원의 넓이:%1$010.2f \n",won, 10);
+		
+		String name = "jeon";
+		String str = "국제";
+		
+		System.out.printf("이름 : %s\t 소속 : %s",name,str);
+		System.out.println();
+		
+		System.out.printf("상품명 : %s\t| 가격 : %4d원\t | 수량 : %2d개 \n", "사탕", 500, 3);
+		System.out.printf("상품명 : %s\t| 가격 : %4d원\t | 수량 : %2d개 \n", "생수", 1000, 10);
+		
+		double x = 1.23456;
+		System.out.printf("실수x의 값 :%8.3f \n", x);
+		System.out.printf("실수x의 값 :%-8.3f \n", x);
+		System.out.printf("실수x의 값 :%08.3f \n", x);
 
 	}
 
