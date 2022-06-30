@@ -12,7 +12,7 @@ public class JavaScanner {
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		
+	
 		
 //		String sc = scanner.next();
 //		System.out.println(sc);
