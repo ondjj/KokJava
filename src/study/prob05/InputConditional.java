@@ -15,9 +15,9 @@ public class InputConditional {
 		System.out.print("근무 시간->");
 		int hour = scanner.nextInt();
 		
-		if(hour >= 8) {
+		if(hour > 8) {
 			System.out.print("일급-->");
-			System.out.println((int)((hour - 7 ) * (hourPay * 1.5)) + (hourPay * 7));
+			System.out.println((int)((hour - 8 ) * (hourPay * 1.5)) + (hourPay * 8));
 		}else {
 			System.out.print("일급-->");
 			System.out.println(hour*hourPay);
