@@ -4,11 +4,10 @@ public class Backjun {
 
 	public static void main(String[] args) {
 		
-		System.out.println("\\    /\\");
-		System.out.println(" )  ( ')");
-		System.out.println("(  /  )");
-		System.out.println(" \\(__)|");
-		
+		char str = 'a';
+		char str1 = 'A';
+		System.out.println((int)(str));
+		System.out.println((int)str1);
 
 	}
 

@@ -23,7 +23,7 @@ public class HomeWork {
 			System.out.println("재시험을 보세요");
 		} else {
 			System.out.println("합계 : " + (java + python + database));
-			System.out.println("평균 : " + (java + python + database)/3);
+			System.out.println("평균 : " + (double)(java + python + database)/3);
 		}
 
 	}
