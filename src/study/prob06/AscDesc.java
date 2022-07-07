@@ -22,8 +22,8 @@ public class AscDesc {
 			System.out.println("100이하의 서로 다른 정수를 입력해주세요.");
 		} else {
 			System.out.println("오름차순으로 출력을 시작합니다.");
-			int num3 = num1 < num2 ? num1 : num2;
-			int num4 = num1 > num2 ? num1 : num2;
+			 int num3 = num1 < num2 ? num1 : num2;
+			 int num4 = num1 > num2 ? num1 : num2;
 			for (int i = num3; i <= num4; i++) {
 				if (i % 2 != 0) {
 					System.out.println(i);
