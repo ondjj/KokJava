@@ -31,24 +31,40 @@ public class Main_2 {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		/*
+		 * BufferedWriter(OutputStream out) --> BufferedReader 와 동일한 목적으로 사용 한다. 
+		 * 사용
+		 * writer -> 버퍼 데이터를 출력 flush --> 버퍼 안에 남아있는 데이터 출력 close --> 사용 종료 
+		 * 위 세 가지를 항목은 세트로 사용해준다.
+		 */
 		
-		//BufferedWriter(OutputStream out)
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		/*
 		 * StringTokenizer() -> 문자열 구분자 --> default : space를 기준으로 구분한다.
 		 * StringTokenizer(문자열,구분자,true/false) true/false -->
 		 * 문자열 분리 시 구분자를 토큰 취급을 할지(true) 무시할지(false)
+		 * nextToken() 구분자로 나누어진 데이터는 한 번에 하나의 토큰만 출력 된다.
+		 * 구분한 토큰을 모두 출력하고자 한다면 for, while(hasMoreToken) 등의 방법을 통해 출력한다.
 		 */
+		
+		
 		StringTokenizer st;
 
-		int T = Integer.parseInt(br.readLine());
+		int T = Integer.parseInt(br.readLine()); // -> 반복 횟 수 지정을 위한 readLine
 
 		for (int i = 0; i < T; i++) {
+			// -> 두 수의 합을 구하기 위한 readLine
+			// -> space로 구분하기 위해 StringTokenizer 사용
 			st = new StringTokenizer(br.readLine());
-
+			
+			// 출력시 Integer.parseInt를 사용하는 이유
+			// BufferedReader를 통해 입력 받은 데이터는 기본적으로 String 타입이다.
+			// 정수 타입으로 출력하고자 한다면 Integer.parseInt 등을 사용해 케스팅한다.
+			// 입력 받은 st는 아직 str 타입이기 때문에 정수로 케스팅
 			bw.write((Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken())) + "\n");
 		}
+		bw.flush();
 		bw.close();
 
 	}
