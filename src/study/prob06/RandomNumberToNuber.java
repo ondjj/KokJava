@@ -13,11 +13,11 @@ public class RandomNumberToNuber {
 		int num2 = scanner.nextInt();
 		
 		int big = num1>num2 ? num1 : num2;
-		int smoll = num1<num2 ? num1 : num2;
+		int small = num1<num2 ? num1 : num2;
 		
 		for(int i=1; i <=10; i++) {
 			
-			int result = (int)(Math.random()*(big-smoll)) + smoll + 1;
+			int result = (int)(Math.random()*(big-small)) + small + 1;
 			
 			System.out.println(result);
 		}
