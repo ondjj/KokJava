@@ -1,0 +1,39 @@
+package study.quiz01;
+
+import java.util.Scanner;
+
+public class NameSearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner in = new Scanner(System.in);
+
+		int n = in.nextInt();
+
+		String[] name = new String[n];
+
+		for (int i = 0; i < n; i++) {
+
+			System.out.print("명단 입력 >>> ");
+
+			name[i] = in.nextLine();
+		}
+
+		for (int i = 0; i < n; i++) {
+
+			System.out.print("검색할 이름을 입력 >>> ");
+			String search = in.nextLine();
+
+			if (name[i].equals(search)) {
+				System.out.printf("%s님은 %d번째 인덱스에 저장되어있습니다. \n", search, i);
+				break;
+			} else {
+				System.out.println("목록에 없는 이름입니다.");
+			}
+		}
+		in.close();
+
+	}
+
+}

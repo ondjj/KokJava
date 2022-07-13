@@ -1,40 +1,79 @@
 package study.prob07;
 
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main_4 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)throws IOException {
 		// TODO Auto-generated method stub
 		/*
-		 * ¹®Á¦ µÎ ÀÚ¿¬¼ö A¿Í B°¡ ÀÖÀ» ¶§, A%B´Â A¸¦ B·Î ³ª´« ³ª¸ÓÁö ÀÌ´Ù. ¿¹¸¦ µé¾î, 7, 14, 27, 38À» 3À¸·Î ³ª´« ³ª¸ÓÁö´Â
-		 * 1, 2, 0, 2ÀÌ´Ù. ¼ö 10°³¸¦ ÀÔ·Â¹ŞÀº µÚ, ÀÌ¸¦ 42·Î ³ª´« ³ª¸ÓÁö¸¦ ±¸ÇÑ´Ù. ±× ´ÙÀ½ ¼­·Î ´Ù¸¥ °ªÀÌ ¸î °³ ÀÖ´ÂÁö Ãâ·ÂÇÏ´Â
-		 * ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À. ÀÔ·Â Ã¹Â° ÁÙºÎÅÍ ¿­¹øÂ° ÁÙ ±îÁö ¼ıÀÚ°¡ ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ ÁÖ¾îÁø´Ù. ÀÌ ¼ıÀÚ´Â 1,000º¸´Ù ÀÛ°Å³ª °°°í, À½ÀÌ
-		 * ¾Æ´Ñ Á¤¼öÀÌ´Ù.
+		 * ë¬¸ì œ ë‘ ìì—°ìˆ˜ Aì™€ Bê°€ ìˆì„ ë•Œ, A%BëŠ” Aë¥¼ Bë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ ì´ë‹¤. ì˜ˆë¥¼ ë“¤ì–´, 7, 14, 27, 38ì„ 3ìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ëŠ”
+		 * 1, 2, 0, 2ì´ë‹¤. ìˆ˜ 10ê°œë¥¼ ì…ë ¥ë°›ì€ ë’¤, ì´ë¥¼ 42ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ë¥¼ êµ¬í•œë‹¤. ê·¸ ë‹¤ìŒ ì„œë¡œ ë‹¤ë¥¸ ê°’ì´ ëª‡ ê°œ ìˆëŠ”ì§€ ì¶œë ¥í•˜ëŠ”
+		 * í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤. ì…ë ¥ ì²«ì§¸ ì¤„ë¶€í„° ì—´ë²ˆì§¸ ì¤„ ê¹Œì§€ ìˆ«ìê°€ í•œ ì¤„ì— í•˜ë‚˜ì”© ì£¼ì–´ì§„ë‹¤. ì´ ìˆ«ìëŠ” 1,000ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ê³ , ìŒì´
+		 * ì•„ë‹Œ ì •ìˆ˜ì´ë‹¤.
 		 * 
-		 * Ãâ·Â Ã¹Â° ÁÙ¿¡, 42·Î ³ª´©¾úÀ» ¶§, ¼­·Î ´Ù¸¥ ³ª¸ÓÁö°¡ ¸î °³ ÀÖ´ÂÁö Ãâ·ÂÇÑ´Ù.
+		 * ì¶œë ¥ ì²«ì§¸ ì¤„ì—, 42ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ, ì„œë¡œ ë‹¤ë¥¸ ë‚˜ë¨¸ì§€ê°€ ëª‡ ê°œ ìˆëŠ”ì§€ ì¶œë ¥í•œë‹¤.
 		 */
 
+		/*
+		 * HashSetì„ ì´ìš©í•œ í’€ì´ HashSetì€ Set ì¸í„°í˜ì´ìŠ¤ì—ì„œ ì§€ì›í•˜ëŠ” êµ¬í˜„ í´ë˜ìŠ¤ë¡œ ìˆœì„œëŒ€ë¡œ ì…ë ¥ë˜ì§€ì•Šê³ , ì¼ì •í•˜ê²Œ ìœ ì§€ë˜ì§€ ì•ŠëŠ”ê²Œ
+		 * íŠ¹ì§•ì´ë‹¤. null ìš”ì†Œë„ í—ˆìš©í•˜ì§€ë§Œ ê°€ì¥ í° íŠ¹ì§•ì€ ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ì•ŠëŠ”ë‹¤.
+		 * 
+		 * HashSetì€ ê°ì²´ë¥¼ ì €ì¥í•˜ê¸° ì „ì— ë¨¼ì € ê°ì²´ì˜ hashCode()ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•´ì„œ í•´ì‹œ ì½”ë“œë¥¼ ì–»ì–´ë‚¸ ë‹¤ìŒ ì €ì¥ë˜ì–´ ìˆëŠ” ê°ì²´ë“¤ì˜ í•´ì‹œ
+		 * ì½”ë“œì™€ ë¹„êµí•œ ë’¤ ê°™ì€ í•´ì‹œ ì½”ë“œê°€ ìˆë‹¤ë©´ ë‹¤ì‹œ equals()Â ë©”ì†Œë“œë¡œ ë‘ ê°ì²´ë¥¼ ë¹„êµí•´ì„œ trueê°€ ë‚˜ì˜¤ë©´ ë™ì¼í•œ ê°ì²´ë¡œ íŒë‹¨í•˜ê³  ì¤‘ë³µ
+		 * ì €ì¥ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		 * 
+		 * HashSet ë³€ìˆ˜ ì„ ì–¸ HashSetì˜ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ëŠ” ë°©ë²•ì…ë‹ˆë‹¤ HashSet<ë°ì´í„°íƒ€ì…> ë³€ìˆ˜ëª… = new
+		 * HashSet<ë°ì´í„°íƒ€ì…>(); ìœ¼ë¡œ ì„ ì–¸í•´ì¤ë‹ˆë‹¤ HashSet<Integer> : Integerí˜•ì˜ HashMap ë°ì´í„°ê°€ ë“¤ì–´ê°‘ë‹ˆë‹¤
+		 * HashSet<String> : Stringí˜•ì˜ HashMap ë°ì´í„°ê°€ ë“¤ì–´ê°‘ë‹ˆë‹¤
+		 * ê°’ ì¶”ê°€ëŠ” add ë©”ì†Œë“œë¥¼ í†µí•´ ì¶”ê°€í•œë‹¤.
+		 * 
+		 */
+		
+		// ìŠ¤ìºë„ˆ ì‚¬ìš©
 		Scanner scanner = new Scanner(System.in);
-		int[] arr = new int[10];
-		int count = 0;
+		HashSet<Integer> h = new HashSet<Integer>();
 
 		for (int i = 0; i < 10; i++) {
-			arr[i] = scanner.nextInt();
-			arr[i] = arr[i] % 42;
-			System.out.println(">>>"+arr[i]);
+			h.add(scanner.nextInt() % 42);
 		}
-		for (int j = 0; j < 10; j++) {
-			if (arr[j] != arr[j]+1) {
-				System.out.println(">>>>"+arr[j]);
-				count++;
-			}else {
-				
-			}
-		}
-		System.out.println(count);
+
 		scanner.close();
+		System.out.print(h.size());
+		
+		// ë²„í¼ ì‚¬ìš©
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		HashSet<Integer> h = new HashSet<Integer>();
+ 
+		
+		for (int i = 0; i < 10; i++) {
+			h.add(Integer.parseInt(br.readLine()) % 42);
+		}
+		
+		System.out.print(h.size());
+		
+		
+		// ë¶ˆë¦¬ì–¸&ë°°ì—´ ì‚¬ìš©
+		boolean[] arr = new boolean[42];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        for(int i = 0 ; i < 10 ; i++) {
+            arr[Integer.parseInt(br.readLine()) % 42] = true;
+        }
+        
+        int count = 0;
+        for(boolean value : arr) {
+            if(value){    // value ê°€ true ë¼ë©´
+                count++;
+            }
+        }
+        System.out.println(count);
+		
+		
 
 	}
 
