@@ -76,6 +76,6 @@ public class RockPaperScissors {
 			System.out.println(count);
 			System.out.println(win);
 		} while (run);
-		System.out.printf("À¯Àú ½Â·ü : %3.1f%s \n", (((double)win/count)*1000)/10,"%");
+		System.out.printf("À¯Àú ½Â·ü : %3.1f%s \n", (((double)win/count)*1000)/(double)10,"%");
 	}
 }
