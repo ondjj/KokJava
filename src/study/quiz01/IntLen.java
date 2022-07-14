@@ -11,6 +11,7 @@ public class IntLen {
 		
 		int sum = 0; 
 		int count = 0;
+		double result =0 ;
 		/* 자리 수 출력
 		 * int[] numLen = new int[in.nextInt()];
 		 * 
@@ -40,11 +41,25 @@ public class IntLen {
 		 * 
 		 * } } System.out.println(); System.out.println(sum); System.out.println(count);
 		 */
-		int[] primeNum = new int[in.nextInt()];
+		int[] a = new int[200];
 		
-		for(int i=0; i<primeNum.length; i++) {
-			int primeRan = (int)(Math.random()*1000)+1;
+		int start = 5;
+		int end = 1000;
+		int idx=0;
+		
+		for(int i = start; i<= end; i++) {
+			for(int j = 2; j<i; j++) {
+				if(i % j == 0)
+					break;
+			}
+			if() {
+				a[idx] = i;
+				idx++;
+			}
+		}
+		System.out.println("***  솟수 출력 ***");
+		for(int j=0; j<a.length; j++) {
+			System.out.println("a["+j+"] = " + a[j]);
 		}
 	}
-
 }
