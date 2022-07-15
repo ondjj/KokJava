@@ -46,19 +46,20 @@ public class IntLen {
 		int start = 5;
 		int end = 1000;
 		int idx=0;
+		int j;
 		
 		for(int i = start; i<= end; i++) {
-			for(int j = 2; j<i; j++) {
+			for(j = 2; j<i; j++) {
 				if(i % j == 0)
 					break;
 			}
-			if() {
+			if(i == j) {
 				a[idx] = i;
 				idx++;
 			}
 		}
 		System.out.println("***  ¼Ú¼ö Ãâ·Â ***");
-		for(int j=0; j<a.length; j++) {
+		for(  j=0; j<a.length; j++) {
 			System.out.println("a["+j+"] = " + a[j]);
 		}
 	}
