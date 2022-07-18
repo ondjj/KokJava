@@ -13,6 +13,11 @@ public class InsertDelete {
 		Scanner in = new Scanner(System.in);
 
 		int[] arr = new int[20];
+		int[] copyArr = new int[20];
+
+		for (int i = 0; i < copyArr.length; i++) {
+			copyArr[i] = arr[i];
+		}
 
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = (int) (Math.random() * (100 - 1) + 1) + 1;
@@ -41,12 +46,20 @@ public class InsertDelete {
 
 			System.out.println();
 
-			int temp = 0;
-			
-			for (int i = insert; i < arr.length-1; i++) {
-				
-				arr[i+1] = arr[i]; 
-				
+			for (int i = 0; i < arr.length; i++) {
+
+				if (i == insert) {
+					for (int j = insert + 1; j < arr.length; j++) {
+						int temp = arr[i + 1];
+						arr[i + 1] = arr[i];
+						
+						arr[i] = temp;
+						
+						/* System.arraycopy(copyArr, i, arr, i+1,arr.length-i); */
+					}
+					
+				}
+				break;
 			}
 
 			System.out.print("»ðÀÔ ÇÒ °ª : ");

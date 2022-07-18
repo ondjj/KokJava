@@ -8,14 +8,18 @@ public class DemensionArray_03 {
 		int[][] arr = new int[5][5];
 		
 		int num = 21;
-		boolean sw = true;
 		
-		for (int i = 0; i<arr.length; i++) {
-			for (int j = 0; j<arr[i].length; j++) {
-				
-				arr[i][j] = num++;
-				
+		for (int i = 0; i < arr.length; i++) {
+			if(i%2==0) {
+				for(int j = 0; j< arr.length; j ++) {
+					arr[i][j] = num++;
+				}
+			}else {
+				for (int j = arr.length-1; j >= 0 ;  j--) {
+					arr[i][j] = num++;
+				}
 			}
+			
 		}
 
 	}
