@@ -13,11 +13,6 @@ public class InsertDelete {
 		Scanner in = new Scanner(System.in);
 
 		int[] arr = new int[20];
-		int[] copyArr = new int[20];
-
-		for (int i = 0; i < copyArr.length; i++) {
-			copyArr[i] = arr[i];
-		}
 
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = (int) (Math.random() * (100 - 1) + 1) + 1;
@@ -47,23 +42,15 @@ public class InsertDelete {
 			System.out.println();
 
 			for (int i = 0; i < arr.length; i++) {
-
 				if (i == insert) {
-					for (int j = insert + 1; j < arr.length; j++) {
-						int temp = arr[i + 1];
-						arr[i + 1] = arr[i];
-						
-						arr[i] = temp;
-						
-						/* System.arraycopy(copyArr, i, arr, i+1,arr.length-i); */
+					for (int j = arr.length - 1; j > i; j--) {
+						arr[j] = arr[j - 1];
 					}
-					
-				}
-				break;
-			}
 
-			System.out.print("삽입 할 값 : ");
-			arr[insert] = in.nextInt();
+					System.out.print("삽입 할 값 : ");
+					arr[insert] = in.nextInt();
+				}
+			}
 
 			System.out.print("변환 값 : ");
 			for (int i : arr) {
@@ -80,12 +67,23 @@ public class InsertDelete {
 			int delete = in.nextInt();
 
 			System.out.println();
+			int temp = 0;
 
 			for (int i = 0; i < arr.length; i++) {
 				if (i == delete) {
+					for (int j = i; j < arr.length-1; j++) {
+						arr[j] = arr[j + 1];
 
-					arr[i] = 0;
+					}
+					arr[arr.length - 1] = temp;
+
 				}
+			}
+			System.out.println();
+
+			System.out.print("변환 값 : ");
+			for (int i : arr) {
+				System.out.print(i + " ");
 			}
 
 			break;
@@ -95,7 +93,6 @@ public class InsertDelete {
 			System.out.print("잘못된 입력입니다.");
 			break;
 		}
-
 	}
 
 }
