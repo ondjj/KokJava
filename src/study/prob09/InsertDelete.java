@@ -71,6 +71,9 @@ public class InsertDelete {
 
 			for (int i = 0; i < arr.length; i++) {
 				if (i == delete) {
+					// 배열 크기는 고정되어 있기 때문에 크기를 벗어 난 곳에서 가져 올 수 없다.
+					// 예를 들어 arr.length -> 20이고 19까지 도는 반복문에서 19+1번째의 배열을 가져 올 수 없기 때문에
+					// arr.length에 -1을 더 해 18까지 도는 반복문을 만들면 아래 코드에서는 18+1까지 동작 해 오류가 나지 않는다.
 					for (int j = i; j < arr.length-1; j++) {
 						arr[j] = arr[j + 1];
 
