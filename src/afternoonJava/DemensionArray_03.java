@@ -37,16 +37,12 @@ public class DemensionArray_03 {
 						arr[i][j] = score;
 
 						sum += arr[i][j];
-
 					} else {
 						arr[i][j] = sum;
 					}
-
 				}
 				sum=0;
-
 			}
-
 		}
 		
 		sum = 0;
