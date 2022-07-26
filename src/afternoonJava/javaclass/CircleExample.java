@@ -12,6 +12,11 @@ public class CircleExample {
 		cir.radius = 5.0;
 		System.out.println(cir.radius);
 		
+		System.out.print("반지름이 5인 원의 지름 : ");
+//		System.out.println((cir.radius*cir.radius)*3.14);
+		cir.getArea();
+		cir.getArea(10);
+		
 		Retangle ret = new Retangle();
 		
 		System.out.print(ret.width +" "+ ret.height);
@@ -19,7 +24,12 @@ public class CircleExample {
 		ret.width = 10;
 		ret.height = 5;
 		System.out.println();
+		
 		System.out.print(ret.width +" "+ ret.height);
+		System.out.println();
+		
+		System.out.print("넓이가 10, 높이가 5인 사각형의 지름 : ");
+		System.out.println(ret.width * ret.height);
 				
 
 	}
