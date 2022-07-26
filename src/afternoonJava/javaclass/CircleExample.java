@@ -17,6 +17,8 @@ public class CircleExample {
 		cir.getArea();
 		cir.getArea(10);
 		
+		
+		System.out.println("==============================");
 		Retangle ret = new Retangle();
 		
 		System.out.print(ret.width +" "+ ret.height);
@@ -30,6 +32,11 @@ public class CircleExample {
 		
 		System.out.print("넓이가 10, 높이가 5인 사각형의 지름 : ");
 		System.out.println(ret.width * ret.height);
+		ret.getArea();
+		ret.getArea(14, 3);
+		
+		double a = ret.getArea2(14, 3);
+		System.out.println(a);
 				
 
 	}
