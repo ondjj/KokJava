@@ -42,6 +42,15 @@ public class CarExample {
 		System.out.println("현재 속도 : "+ kia.speed);
 		
 		
+		Car kar = new Car("검정", 3000);
+		
+		int a = kar.cc;
+		String b = kar.color;
+		
+		System.out.print(b + a);
+		
+		Car kar2 = new Car();
+		
 	}
 
 }

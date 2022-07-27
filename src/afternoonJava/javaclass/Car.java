@@ -14,6 +14,17 @@ public class Car {
 	int maxSpeed = 350;
 	
 	int speed;
+	
+	int cc;
+	
+	Car(){
+		
+	}
+	
+	Car(String color, int cc){
+		this.color = color;
+		this.cc = cc;
+	}
 
 }
 
