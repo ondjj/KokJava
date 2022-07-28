@@ -20,10 +20,16 @@ public class Car {
 	}
 	
 	
+
 	Car(String model, String color, int maxSpeed){
 		this.model = model;
 		this.color = color;
 		this.maxSpeed = maxSpeed;
 	}
 	
+	@Override
+	public String toString() {
+		String str = "회사 : " + company + "\nmodel : " + model + "\n색깔 : " + color + "\n최고 속도 : " + maxSpeed;
+		return str;
+	}
 }

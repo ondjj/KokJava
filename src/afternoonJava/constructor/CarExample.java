@@ -43,6 +43,8 @@ public class CarExample {
 		System.out.print("최대속도 : ");
 		System.out.println(car4.maxSpeed);
 		
+		System.out.println(car4);
+		System.out.println(car4.toString());
 		
 
 	}
