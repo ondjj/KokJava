@@ -13,6 +13,8 @@ public class Rectangle {
 		this.width = width;
 		this.height = height;
 	}
+	
+	
 
 //	int area(int width, int height) {
 //		int result = width * height;
